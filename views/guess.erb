@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="background-color: <%= @background %>;">
+  <h1>Guess a number from 1 to 100.</h1>
+  <% if !session[:guesses].nil? %>
+  <p>Your guesses so far:</p>
+  <% session[:guesses].each do |g| %>
+    <p><%= g %></p>
+  <% end %>
+  <% end %>
+  <br>
+  <% if !@message.nil? %>
+    <h3><%= @message %>
+  <% end %>
+  <br>
+  <form action='/' method="post">
+  <label>Enter a number from 1 to 100:</label><br>
+  <input type="number" name="guess" min="1" max="100"><br>
+  <input type="submit">
+  </form>
+</body>
+</html>
